@@ -20,11 +20,30 @@ def plot_data(processed_data,filename,save_image):
         #saving image if desired by user
         if save_image==True:
             name = os.path.splitext(filename[i])[0].lower()
-            new_ext='.pdf'
-            plt.savefig(name+new_ext,format='pdf',dpi=1200,bbox_inches='tight')
+            new_ext='.png'
+            plt.savefig(name+new_ext,format='png',dpi=1200,bbox_inches='tight')
         plt.show()
 
 
 
     pass
 
+'''
+#Playing around with Pillow
+path='JWST_IMAGE_MAKER/Output Figures/'
+picturename='jw02739-o002_t001_miri_f1130w_i2d-1.png'
+
+#this snippet shows a .png that is already loaded into the directory
+image1=Image.open(path+picturename)
+image1.show()
+
+#This snippet will combine two png's
+image2=Image.open(path+'jw02739-o002_t001_miri_f1500w_i2d-1.png')
+
+print(image2.mode,image1.mode)
+
+intermediate= Image.alpha_composite(image1,image2)
+
+#intermediate.show()
+   
+'''
