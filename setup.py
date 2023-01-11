@@ -19,6 +19,7 @@ INSTALL_REQUIRES = [
       'astropy.io.fits',
       'sys',
       'os',
+      'PIL',
       'matplotlib.pyplot' #maybe remove .pyplot later
 
 ]
