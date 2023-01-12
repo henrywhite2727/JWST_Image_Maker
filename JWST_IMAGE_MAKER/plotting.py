@@ -28,22 +28,21 @@ def plot_data(processed_data,filename,save_image):
 
     pass
 
-'''
-#Playing around with Pillow
-path='JWST_IMAGE_MAKER/Output Figures/'
-picturename='jw02739-o002_t001_miri_f1130w_i2d-1.png'
 
-#this snippet shows a .png that is already loaded into the directory
-image1=Image.open(path+picturename)
-image1.show()
+# #Playing around with Pillow
+# path='JWST_IMAGE_MAKER/Output Figures/'
+# picturename='jw02739-o002_t001_miri_f1130w_i2d-1.png'
 
-#This snippet will combine two png's
-image2=Image.open(path+'jw02739-o002_t001_miri_f1500w_i2d-1.png')
+# #this snippet shows a .png that is already loaded into the directory
+# image1=Image.open(path+picturename)
+# image1.show()
 
-print(image2.mode,image1.mode)
+# #This snippet will combine two png's
+# image2=Image.open(path+'jw02739-o002_t001_miri_f1500w_i2d-1.png')
 
-intermediate= Image.alpha_composite(image1,image2)
+# print(image2.mode,image1.mode)
 
-#intermediate.show()
+# intermediate= Image.alpha_composite(image1,image2)
+
+# #intermediate.show()
    
-'''
