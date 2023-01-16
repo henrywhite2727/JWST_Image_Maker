@@ -48,16 +48,29 @@ def get_MIRI_data(query_result,object_name):
     """
     #All MIRI observation ID's are saved in the miri_obsid list so they can be downloaded 
     miri_obsid=[]
-    for i in range(len(query_result)):
-        if 'mirimage' in query_result[i][1]:
-            miri_obsid.extend([query_result[i][1]])
 
-    #Downloading relevant fits files from the MIRI observation ID's 
+    #This list will contain strings denoting which filter (i.e F770W) is used to make a given observation. This list is used to 
+    # ensure that multiple copies of the same observation are not downloaded
+
+    filters_loaded=[]
+
+    for i in range(len(query_result)):
+        instrument_name=query_result[i][5]
+        filter=query_result[i][6]
+        
+        if instrument_name=='MIRI':
+            if filter not in filters_loaded:
+                #add observation ID to list
+                miri_obsid.extend([query_result[i][1]])
+                filters_loaded.extend([query_result[i][6]])
+
+    #Downloading relevant fits files from the MIRI observation's
+    
     #The relevant file in the product_list folder is the one containing i2d at the end 
     # (these are 2D images, for more info see https://jwst-pipeline.readthedocs.io/en/stable/jwst/data_products/science_products.html#i2d)
 
 
-    #   ****    Right now, this code is just looking at the first observation ID, this should be updated later to sort through relevant folders  *****
+    #   Right now, this code is just looking at the first observation, this should be updated later to include data when different filters are used (full miri_obsid)
 
     #Creating a new folder for 'i2d.fits' data from query
     newpath = './Query_Data/'+object_name

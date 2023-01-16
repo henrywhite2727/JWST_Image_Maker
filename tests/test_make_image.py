@@ -15,7 +15,7 @@ def test_checkfiles(monkeypatch):
     ]
     #monkeypatch.setattr('JWST_IMAGE_MAKER.plotting.plot_data','input', enter)  #Why this line doesn't work: it looks for a function named input in the plot_data function and tried to get the code to execute the enter function instead (which doesn't even exist)
     monkeypatch.setattr(builtins,'input', lambda x : time.sleep(3))  # This looks for anytime the builtin function 'input' is used and instead of running that line, it executes time.sleep(3)
-    make_image(file_name, save_image=False)
+    make_image(file_name,False, save_image=False)
 
 
 '''
